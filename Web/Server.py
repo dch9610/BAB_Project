@@ -5,6 +5,7 @@ from flask import redirect, render_template
 from blueprint.main_blueprint import main_blue
 from blueprint.chart_blueprint import chart_blue
 from blueprint.board_blueprint import board_blue
+from blueprint.user_blueprint import user_blue
 
 # 서버역할을 할 객체 생성
 # template_folder : 랜더링할 html 문서가 있는 곳(기본 - templates)
@@ -17,6 +18,7 @@ app = Flask(__name__, template_folder='templates', static_folder='assets')
 app.register_blueprint(main_blue)
 app.register_blueprint(chart_blue)
 app.register_blueprint(board_blue)
+app.register_blueprint(user_blue)
 
 
 # 주소만 입력하고 들어왔을 경우 호출될 부분
