@@ -4,6 +4,10 @@ __pycache__/
 *$py.class
 *.csv
 
+=======
+.DS_Store
+>>>>>>> 8f415e6aa7c84dcab2b888983b8bcaa84f5b8429
+
 # C extensions
 *.so
 
