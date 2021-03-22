@@ -16,6 +16,38 @@ def user_login() :
 
     return html
 
+# 사용자 로그인 확인
+@user_blue.route('/user_login_pro', methods=['post'])
+def user_login_pro():
+    user_email = request.form.get('user_email')
+    user_pw = request.form.get('user_pw')
+
+    print(user_email)
+    print(user_pw)
+
+    # 사용자 존재 여부 확인
+    result = user_dao.check_login_user(user_email, user_pw)
+    print(result)
+
+    # 로그인 실패
+    if result == None :
+        return '''
+                <script>
+                    alert('로그인에 실패하였습니다')
+                    location.href='user_login?login_fail=true'
+                </script>
+               '''
+    # 로그인 성공
+    else :
+        return '''
+                <script>
+                    alert('로그인에 성공하였습니다')
+                    location.href='main'
+                </script>
+               '''
+
+# ---------------------------------------------------------------
+
 # 회원가입
 @user_blue.route('/user_join')
 def user_join() :
@@ -29,10 +61,20 @@ def user_join() :
 def user_join_pro():
  # 브라우저가 전달한 데이터를 추출한다.
     # print(request.form)
-    user_name = request.form.get('user_name')
-    user_id = request.form.get('user_id')
-    user_pw = request.form.get('user_pw')
+    signup_name = request.form.get('signup_name')
+    signup_email = request.form.get('signup_email')
+    signup_password = request.form.get('signup_password')
 
-    print(user_name)
-    print(user_id)
-    print(user_pw)
+    print(signup_name)
+    print(signup_email)
+    print(signup_password)
+
+    # 데이터 베이스에 저장한다.
+    # user_dao.insertUserData(signup_name,signup_email,signup_password)
+
+    return '''
+            <script>
+                alert('가입이 완료되었습니다')
+                location.href = 'user_login'
+            </script>
+           '''
