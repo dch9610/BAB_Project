@@ -29,20 +29,23 @@
 		<!--//app-sidepanel-->
 		{% include 'include/side_bar.html' %}
 	</header>
-	
+
 
 	<div class="app-wrapper">
-
+		<!-- 게시판 출력 부분 -->
 		<div class="app-content pt-3 p-md-3 p-lg-4">
 			<div class="container-xl">
 
+				<!-- 게시판 윗부분 -->
 				<div class="row g-3 mb-4 align-items-center justify-content-between">
 					<div class="col-auto">
-						<h1 class="app-page-title mb-0">Orders</h1>
+						<h1 class="app-page-title mb-0">게시판</h1>
 					</div>
+					
 					<div class="col-auto">
 						<div class="page-utilities">
 							<div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+								<!-- 검색 기능 -->
 								<div class="col-auto">
 									<form class="table-search-form row gx-1 align-items-center">
 										<div class="col-auto">
@@ -55,7 +58,8 @@
 									</form>
 
 								</div>
-								<!--//col-->
+								
+								<!--// 년도 설정-->
 								<div class="col-auto">
 
 									<select class="form-select w-auto">
@@ -66,6 +70,8 @@
 
 									</select>
 								</div>
+								
+								<!-- csv 파일로 저장 -->
 								<div class="col-auto">
 									<a class="btn app-btn-secondary" href="#">
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download mr-1"
@@ -85,9 +91,8 @@
 					</div>
 					<!--//col-auto-->
 				</div>
-				<!--//row-->
-
-
+				
+				<!-- 게시판 카테고리 -->
 				<nav id="orders-table-tab"
 					class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
 					<a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-toggle="tab"
@@ -102,14 +107,17 @@
 						aria-selected="false">Cancelled</a>
 				</nav>
 
-
+				<!-- 게시판 내용 출력 -->
 				<div class="tab-content" id="orders-table-tab-content">
+
+					<!-- 첫번째 카테고리 -->
 					<div class="tab-pane fade show active" id="orders-all" role="tabpanel"
 						aria-labelledby="orders-all-tab">
 						<div class="app-card app-card-orders-table shadow-sm mb-5">
 							<div class="app-card-body">
 								<div class="table-responsive">
 									<table class="table app-table-hover mb-0 text-left">
+										<!-- 내용 제목 부분 -->
 										<thead>
 											<tr>
 												<th class="cell">Order</th>
@@ -121,6 +129,7 @@
 												<th class="cell"></th>
 											</tr>
 										</thead>
+										<!-- 내용 본문 부분 -->
 										<tbody>
 											<tr>
 												<td class="cell">#15346</td>
@@ -200,12 +209,11 @@
 										</tbody>
 									</table>
 								</div>
-								<!--//table-responsive-->
-
 							</div>
-							<!--//app-card-body-->
+							
 						</div>
-						<!--//app-card-->
+
+						<!-- 페이지 넘기기 -->
 						<nav class="app-pagination">
 							<ul class="pagination justify-content-center">
 								<li class="page-item disabled">
@@ -219,17 +227,18 @@
 								</li>
 							</ul>
 						</nav>
-						<!--//app-pagination-->
+						
 
 					</div>
-					<!--//tab-pane-->
-
+					
+					<!-- 두번째 카테고리 내용부분 -->
 					<div class="tab-pane fade" id="orders-paid" role="tabpanel" aria-labelledby="orders-paid-tab">
 						<div class="app-card app-card-orders-table mb-5">
 							<div class="app-card-body">
 								<div class="table-responsive">
 
 									<table class="table mb-0 text-left">
+										<!-- 내용 제목 부분  -->
 										<thead>
 											<tr>
 												<th class="cell">Order</th>
@@ -241,6 +250,7 @@
 												<th class="cell"></th>
 											</tr>
 										</thead>
+										<!-- 내용 본문 부분 -->
 										<tbody>
 											<tr>
 												<td class="cell">#15346</td>
@@ -298,14 +308,29 @@
 										</tbody>
 									</table>
 								</div>
-								<!--//table-responsive-->
+								
 							</div>
-							<!--//app-card-body-->
+							
 						</div>
-						<!--//app-card-->
-					</div>
-					<!--//tab-pane-->
+						
+						<!-- 페이지 넘기기 -->
+						<nav class="app-pagination">
+							<ul class="pagination justify-content-center">
+								<li class="page-item disabled">
+									<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+								</li>
+								<li class="page-item active"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item">
+									<a class="page-link" href="#">Next</a>
+								</li>
+							</ul>
+						</nav>
 
+					</div>
+					
+					<!-- 세번째 카테고리 내용부분 -->
 					<div class="tab-pane fade" id="orders-pending" role="tabpanel" aria-labelledby="orders-pending-tab">
 						<div class="app-card app-card-orders-table mb-5">
 							<div class="app-card-body">
@@ -340,11 +365,27 @@
 								</div>
 								<!--//table-responsive-->
 							</div>
-							<!--//app-card-body-->
+							
 						</div>
-						<!--//app-card-->
+
+						<!-- 페이지 넘기기 -->
+						<nav class="app-pagination">
+							<ul class="pagination justify-content-center">
+								<li class="page-item disabled">
+									<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+								</li>
+								<li class="page-item active"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item">
+									<a class="page-link" href="#">Next</a>
+								</li>
+							</ul>
+						</nav>
+						
 					</div>
-					<!--//tab-pane-->
+
+					<!-- 네번째 카테고리 내용부분 -->
 					<div class="tab-pane fade" id="orders-cancelled" role="tabpanel"
 						aria-labelledby="orders-cancelled-tab">
 						<div class="app-card app-card-orders-table mb-5">
@@ -383,18 +424,32 @@
 							</div>
 							<!--//app-card-body-->
 						</div>
-						<!--//app-card-->
+						
+						<!-- 페이지 넘기기 -->
+						<nav class="app-pagination">
+							<ul class="pagination justify-content-center">
+								<li class="page-item disabled">
+									<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+								</li>
+								<li class="page-item active"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item">
+									<a class="page-link" href="#">Next</a>
+								</li>
+							</ul>
+						</nav>
 					</div>
-					<!--//tab-pane-->
+					
 				</div>
-				<!--//tab-content-->
+				
 
 
 
 			</div>
 			<!--//container-fluid-->
 		</div>
-		<!--//app-content-->
+		
 
 		<!--//app-footer-->
 		{% include 'include/footer.html' %}
