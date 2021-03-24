@@ -13,22 +13,22 @@
 	<meta name="author" content="Xiaoying Riley at 3rd Wave Media">
 	<link rel="shortcut icon" href="favicon.ico">
 
-	<!-- FontAwesome JS-->
+	<!-- FontAwesome JS-->	
 	<script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
 
 	<!-- App CSS -->
 	<link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 
+	<!-- 유효성 검사를 위해 필요 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
 		function check_input(){
 
 			// 사용자가 입력한 데이터를 추출한다.
-			signup_name = $("#signup_name").val();
-			signup_email = $("#signup_email").val();
-			signup_password = $("#signup_password").val();
-			signup_password2 = $("#signup_password2").val();
-
-			alert(signup_name,signup_email,signup_password );
+			signup_name = $("#signup_name").val()
+			signup_email = $("#signup_email").val()
+			signup_password = $("#signup_password").val()
+			signup_password2 = $("#signup_password2").val()
 
 			// 유효성 검사
 			if(signup_name.length < 2){
@@ -61,7 +61,7 @@
 
 					<div class="auth-form-container text-left mx-auto">
 						<!-- 회원 정보 입력 후 가입 -->
-						<form action="user_join_pro" method="POST" onsubmit="check_input();">
+						<form action="user_join_pro" method="POST" onsubmit="return check_input()">
 							<!-- 이름 작성 -->
 							<div class="form-group mb-3">
 								<label class="sr-only" for="signup_name">Your Name</label>
@@ -75,11 +75,10 @@
 								<div class='input-group'>
 
 									<input id="signup_email" name="signup_email" type="email" class="form-control"
-										placeholder="Email" required="required" onkeypress="reset_check_id()">
+										placeholder="Email" required="required">
 
 									<div class="input-group-append">
-										<button type="button" class="btn btn-primary btn-block theme-btn mx-auto"
-											onclick='check_join_id()'>중복확인</button>
+										<button type="button" class="btn btn-primary btn-block theme-btn mx-auto">중복확인</button>
 									</div>
 								</div>
 
