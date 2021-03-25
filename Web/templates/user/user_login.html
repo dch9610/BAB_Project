@@ -60,6 +60,12 @@
 
 					<!-- 로그인 페이지 -->
 					<div class="auth-form-container text-left">
+						{% if login_fail != None %}
+						<div class="alert alert-danger">
+							<h3>로그인 실패</h3>
+							<p>이메일, 비밀번호를 확인해주세요</p>
+						</div>
+						{% endif %}
 						<!-- <form class="auth-form login-form"> -->
 						<form action="user_login_pro" method='post' onsubmit='return check_input()'>
 

@@ -12,7 +12,7 @@ from blueprint.user_blueprint import user_blue
 app = Flask(__name__, template_folder='templates', static_folder='assets')
 
 # 세션영역 사용을 위한 암호화 키를 설정한다.
-# app.secret_key = 'p9pwefijeprgqjgijregf'
+app.secret_key = 'p9pwefijeprgqjgijregf'
 
 # blueprint 등록
 app.register_blueprint(main_blue)

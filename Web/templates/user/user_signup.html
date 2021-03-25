@@ -13,16 +13,17 @@
 	<meta name="author" content="Xiaoying Riley at 3rd Wave Media">
 	<link rel="shortcut icon" href="favicon.ico">
 
-	<!-- FontAwesome JS-->	
+	<!-- FontAwesome JS-->
 	<script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
 
 	<!-- App CSS -->
 	<link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 
 	<!-- 유효성 검사를 위해 필요 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
-		function check_input(){
+		function check_input() {
 
 			// 사용자가 입력한 데이터를 추출한다.
 			signup_name = $("#signup_name").val()
@@ -31,21 +32,83 @@
 			signup_password2 = $("#signup_password2").val()
 
 			// 유효성 검사
-			if(signup_name.length < 2){
+			if (signup_name.length < 2) {
 				alert('사용자 이름은 2글자 이상이어야 합니다')
 				$('#signup_name').val('')
 				$('#signup_name').focus()
 				return false
 			}
 
-			if(signup_password != signup_password2) {
+			if (signup_password.length < 4) {
+				alert('비밀번호는 8글자 이상이여야 합니다')
+				$('#signup_password').val('')
+				$('#signup_password').focus()
+				return false
+			}
+
+			if (signup_password2.length < 4) {
+				alert('비밀번호는 8글자 이상이여야 합니다')
+				$('#signup_password2').val('')
+				$('#signup_password2').focus()
+				return false
+			}
+
+			if (signup_password != signup_password2) {
 				alert('비밀번호가 일치하지 않습니다')
 				$('#signup_password').val('')
 				$('#signup_password2').val('')
 				$('#signup_password').focus()
 				return false
 			}
+			
+			if(check_id_val == false) {
+				alert('아이디 중복 확인을 해주세요')
+				return false
+			}
+
+			return true
 		}
+
+		// 아이디 중복확인 여부 변수
+		check_id_val = false
+
+		// 아이디 중복 확인 함수
+		function check_join_id() {
+			// 입력한 아이디를 추출한다.
+			signup_email = $("#signup_email").val()
+
+			// 서버로 보낼 데이터
+			var data = {
+				new_id : signup_email
+			}
+
+			$.ajax({
+				// 요청할 주소
+				url: 'check_join_id',
+				// 서버로 보낼 데이터
+				data: data,
+				// 요청 방식
+				type: 'get',
+				// 응답 결과 양식
+				dataType: 'text',
+				// 성공했을 때 호출될 함수
+				success: function (result) {
+					if (result.trim() == 'True') {
+						alert('사용할 수 있는 이메일 입니다')
+						check_id_val = true
+					} else {
+						alert('사용할 수 없는 이메일 입니다')
+						check_id_val = false
+					}
+				}
+			})
+		}
+
+		// 아이디 입력칸에 키를 입력하면 중복확인을 하지 않을 것으로 처리한다.
+		function reset_check_id(){
+			check_id_val = false
+		}
+
 	</script>
 </head>
 
@@ -75,10 +138,11 @@
 								<div class='input-group'>
 
 									<input id="signup_email" name="signup_email" type="email" class="form-control"
-										placeholder="Email" required="required">
+										placeholder="Email" required="required" onkeypress="reset_check_id()"/> 
 
 									<div class="input-group-append">
-										<button type="button" class="btn btn-primary btn-block theme-btn mx-auto">중복확인</button>
+										<button type="button"
+											class="btn btn-primary btn-block theme-btn mx-auto" onclick='check_join_id()'>중복확인</button>
 									</div>
 								</div>
 
