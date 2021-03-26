@@ -9,5 +9,5 @@ board_blue = Blueprint('board', __name__)
 @board_blue.route('/board_main')
 def board_main() :
     
-    html = render_template('boards/orders.html')
+    html = render_template('boards/board_main.html')
     return html

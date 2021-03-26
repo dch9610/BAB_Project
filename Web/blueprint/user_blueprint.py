@@ -37,7 +37,7 @@ def user_modify() :
 @user_blue.route('/user_modify_pro', methods=['post'])
 def user_modify_pro():
     # 파라미터 데이터 추출한다.
-    user_pw = request.form.get('user_pw')
+    user_pw = request.form.get('signup_password')
     # print(user_pw)
     # 세션에서 로그인한 사용자의 인덱스를 가져온다.
     login_user_idx = session.get('login_user_idx')
