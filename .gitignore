@@ -3,10 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.csv
-
-=======
 .DS_Store
->>>>>>> 8f415e6aa7c84dcab2b888983b8bcaa84f5b8429
+=======
+*.png
+>>>>>>> e62ae430ccb1ef8acaeaa16002cc230f06403f91
 
 # C extensions
 *.so
