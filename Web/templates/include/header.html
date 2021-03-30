@@ -5,6 +5,7 @@
             <div class="row justify-content-between align-items-center">
                 <!-- 왼쪽 여백 생성 -->
                 <div class="col-auto">
+                    <div>BAB 헌혈 홈페이지</div>
                     <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img">
                             <title>Menu</title>
@@ -17,11 +18,11 @@
                 <!-- 로그인, 알림 설정-->
                 <div class="app-utilities col-auto">
                     <!-- 알림 설정 -->
+                    
                     <div class="app-utility-item app-notifications-dropdown dropdown">
                         <!--//dropdown-toggle-->
-                        <a class="dropdown-toggle no-toggle-arrow" id="notifications-dropdown-toggle"
+                        <!-- <a class="dropdown-toggle no-toggle-arrow" id="notifications-dropdown-toggle"
                             data-toggle="dropdown" href="#" role="button" aria-expanded="false" title="Notifications">
-                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bell icon"
                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z" />
@@ -29,8 +30,8 @@
                                     d="M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
                             </svg>
                             <span class="icon-badge">3</span>
-                        </a>
-                        
+                        </a> -->
+
                         <!--//dropdown-menu-->
                         <div class="dropdown-menu p-0" aria-labelledby="notifications-dropdown-toggle">
                             <div class="dropdown-menu-header p-3">
@@ -138,24 +139,39 @@
                             </div>
 
                         </div>
-                        
+
                     </div>
 
-                    
+
                     <!-- 로그인 설정 -->
                     <div class="app-utility-item app-user-dropdown dropdown">
                         <a class="dropdown-toggle" id="user-dropdown-toggle" data-toggle="dropdown" href="#"
                             role="button" aria-expanded="false"><img src="assets/images/user.png"
                                 alt="user profile"></a>
                         <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
-                            <li><a class="dropdown-item" href="account.html">Account</a></li>
-                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
+                            {% if session.get('login_user_idx') == None%}
+                            <!-- 로그인 -->
+                            <li class="nav-item">
+                                <a href="user_login" class="nav-link">로그인</a>
                             </li>
-                            <li><a class="dropdown-item" href="login.html">Log Out</a></li>
+                            <!-- 회원가입 -->
+                            <li class="nav-item">
+                                <a href="user_join" class="nav-link">회원가입</a>
+                            </li>
+                            {% else %}
+                            <!-- 정보수정 -->
+                            <li class="nav-item">
+                                <a href="user_modify" class="nav-link">정보수정</a>
+                            </li>
+
+                            <!-- 로그아웃 -->
+                            <li class="nav-item">
+                                <a href="user_logout" class="nav-link">로그아웃</a>
+                            </li>
+                            {%endif%}
                         </ul>
                     </div>
+
                     <!--//app-user-dropdown-->
                 </div>
                 <!--//app-utilities-->
