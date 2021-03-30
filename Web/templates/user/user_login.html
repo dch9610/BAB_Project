@@ -18,14 +18,33 @@
 
 	<!-- App CSS -->
 	<link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
+
+	<!-- 유효성 검사를 위해 필요 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
 		function check_input() {
 			// 사용자가 입력한 값을 가져온다.
-			user_id = $('#user_email').val()
+			user_email = $('#user_email').val()
 			user_pw = $('#user_pw').val()
 
 			console.log(user_email)
 			console.log(user_pw)
+
+			// 유효성 검사
+			if (user_email.length < 4) {
+				alert('사용자 아이디는 4글자 이상입니다')
+				$('#user_email').val('')
+				$('#user_email').focus()
+				return false
+			}
+
+			if (user_pw.length < 4) {
+				alert('비밀번호는 4글자 이상입니다')
+				$('#user_pw').val('')
+				$('#user_pw').focus()
+				return false
+			}
+			return true
 		}
 	</script>
 </head>
@@ -33,7 +52,7 @@
 <body class="app app-login p-0">
 	<div class="row g-0 app-auth-wrapper">
 		<div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
-			<div class="d-flex flex-column align-content-end">
+			<div class="d-flex flex-column22 align-content-end">
 				<div class="app-auth-body mx-auto">
 					<div class="app-auth-branding mb-4"><a class="app-logo" href="main"><img
 								class="logo-icon mr-2" src="assets/images/app-logo.svg" alt="logo"></a></div>
@@ -41,8 +60,14 @@
 
 					<!-- 로그인 페이지 -->
 					<div class="auth-form-container text-left">
+						{% if login_fail != None %}
+						<div class="alert alert-danger">
+							<h3>로그인 실패</h3>
+							<p>이메일, 비밀번호를 확인해주세요</p>
+						</div>
+						{% endif %}
 						<!-- <form class="auth-form login-form"> -->
-						<form action="user_login_pro" method='post'>
+						<form action="user_login_pro" method='post' onsubmit='return check_input()'>
 
 							<!--// 이메일 등록 -->
 							<div class="email mb-3">
