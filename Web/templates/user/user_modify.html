@@ -73,12 +73,12 @@
 
 					<div class="auth-form-container text-left mx-auto">
 						<!-- 회원 정보 입력 후 가입 -->
-						<form action="user_join_pro" method="POST" onsubmit="return check_input()">
+						<form action="user_modify_pro" method="POST" onsubmit="return check_input()">
 							<!-- 이름 작성 -->
 							<div class="form-group mb-3">
 								<label class="sr-only" for="signup_name">Your Name</label>
 								<input id="signup_name" name="signup_name" type="text" class="form-control"
-									placeholder="Full name" required="required">
+									placeholder="Full name" required="required" value="{{login_user_data[1]}}" disabled="disabled">
 							</div>
 
 							<!-- 이메일 작성 -->
@@ -87,7 +87,7 @@
 								<div class='input-group'>
 
 									<input id="signup_email" name="signup_email" type="email" class="form-control"
-										placeholder="Email" required="required" value="{{login_user_data[1]}}" disabled="disabled"/> 
+										placeholder="Email" required="required" value="{{login_user_data[2]}}" disabled="disabled"/> 
 
 									
 								</div>
@@ -98,7 +98,7 @@
 							<div class="form-group mb-3">
 								<label class="sr-only" for="signup_password">Password</label>
 								<input id="signup_password" name="signup_password" type="password" class="form-control"
-									placeholder="Create a password" required="required">
+									placeholder="password" required="required">
 							</div>
 
 							<!-- 패스워드 확인 -->
@@ -120,14 +120,14 @@
 							</div> -->
 
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary btn-block theme-btn mx-auto">회원가입</button>
+								<button type="submit" class="btn btn-primary btn-block theme-btn mx-auto">회원확인</button>
 							</div>
 
 						</form>
 
 
-						<div class="auth-option text-center pt-5">계정이 있으면 여기로 가세요 <a class="text-link"
-								href="user_login">로그인</a></div>
+						<!-- <div class="auth-option text-center pt-5">계정이 있으면 여기로 가세요 <a class="text-link"
+								href="user_login">로그인</a></div> -->
 					</div>
 					<!--//auth-form-container-->
 

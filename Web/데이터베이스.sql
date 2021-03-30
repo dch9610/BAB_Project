@@ -1,3 +1,11 @@
+# 데이터 베이스 생성
+create database donation_board_db
+default character set utf8
+collate utf8_unicode_ci;
+
+# 데이터 베이스 사용설정
+use donation_board_db;
+
 # 회원정보 테이블
 # auto_increment : 자동으로 1씩 증가된값이 저장
 create table user_table(
