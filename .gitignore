@@ -3,10 +3,18 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.csv
+<<<<<<< HEAD
 *.png
+=======
+
+=======
+.DS_Store
+>>>>>>> 8f415e6aa7c84dcab2b888983b8bcaa84f5b8429
+>>>>>>> 3f14eb1de961c2fd53f9301eccb25c24ef80ff94
 
 # C extensions
 *.so
+*.csv
 
 # Distribution / packaging
 .Python
